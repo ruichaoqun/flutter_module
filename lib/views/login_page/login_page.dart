@@ -19,10 +19,10 @@ class _LoginPageState extends State<LoginPage> {
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
         color: const Color(0xff7c94b6),
-        image: DecorationImage(
-          image: NetworkImage('http://h.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0d023672312ac65c67506e77cec29e27/9f2f070828381f30dea167bbad014c086e06f06c.jpg'),
-          fit: BoxFit.cover,
-        ),
+//        image: DecorationImage(
+//          image: NetworkImage('http://h.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0d023672312ac65c67506e77cec29e27/9f2f070828381f30dea167bbad014c086e06f06c.jpg'),
+//          fit: BoxFit.cover,
+//        ),
         //边界
 //        border: Border.all(
 //          color: Colors.black,
@@ -40,22 +40,73 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Container(
-            width: MediaQuery.of(context).size.width*0.85,
+            width: MediaQuery.of(context).size.width * 0.85,
             margin: EdgeInsets.fromLTRB(0, 20.0, 0, 0),
-            padding:EdgeInsets.fromLTRB(15.0, 0, 15.0, 0),
+            padding: EdgeInsets.fromLTRB(15.0, 0, 15.0, 0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(8.0)),
             ),
             child: Column(
               children: <Widget>[
-                TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Password',
-                  ),
-                )
+                SizedBox(height: 30.0),
+                Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.add_alert,
+                      size: 20.0,
+                      color: Color(0xff999999),
+                    ),
+                    Expanded(
+                      child: TextField(
+                        style: TextStyle(color: Color(0xff333333),fontSize:16.0),
+                        obscureText: false,
+                        cursorColor: Colors.grey,
+                        decoration: InputDecoration(
+                            border: InputBorder.none, hintText: '请输入登录账号'),
+
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 2.0,
+                  color: Color(0xff999999),
+                ),
+                SizedBox(height: 30.0),
+                Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.add_alert,
+                      size: 20.0,
+                      color: Color(0xff999999),
+                    ),
+                    Expanded(
+                      child: TextField(
+                        style: TextStyle(color: Color(0xff333333),fontSize:16.0),
+                        obscureText: true,
+                        cursorColor: Colors.grey,
+                        decoration: InputDecoration(
+                            border: InputBorder.none, hintText: '请输入登录密码'),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 2.0,
+                  color: Color(0xff999999),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    RawMaterialButton(
+                      child: Text('忘记密码',style: TextStyle(color: Colors.blue)),
+                      onPressed: (){},
+                    ),
+                  ],
+                ),
               ],
             ),
           )
