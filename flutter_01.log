@@ -1,0 +1,82 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter --no-color packages get
+
+## exception
+
+FileSystemException: FileSystemException: Deletion failed, path = 'E:\source\SmartRoomAssistant\flutter_module\.android' (OS Error: 目录不是空的。
+, errno = 145)
+
+```
+#0      _Directory._deleteSync (dart:io/directory_impl.dart:206:7)
+#1      FileSystemEntity.deleteSync (dart:io/file_system_entity.dart:464:47)
+#2      ForwardingFileSystemEntity.deleteSync (package:file/src/forwarding/forwarding_file_system_entity.dart:72:16)
+#3      _deleteIfExistsSync (package:flutter_tools/src/project.dart:623:15)
+#4      AndroidProject._regenerateLibrary (package:flutter_tools/src/project.dart:579:5)
+#5      AndroidProject.ensureReadyForPlatformSpecificTooling (package:flutter_tools/src/project.dart:543:7)
+<asynchronous suspension>
+#6      FlutterProject.ensureReadyForPlatformSpecificTooling (package:flutter_tools/src/project.dart:201:21)
+<asynchronous suspension>
+#7      PackagesGetCommand.runCommand (package:flutter_tools/src/commands/packages.dart:129:23)
+<asynchronous suspension>
+#8      FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:490:18)
+#9      _asyncThenWrapperHelper.<anonymous closure> (dart:async-patch/async_patch.dart:77:64)
+#10     _rootRunUnary (dart:async/zone.dart:1132:38)
+#11     _CustomZone.runUnary (dart:async/zone.dart:1029:19)
+#12     _FutureListener.handleValue (dart:async/future_impl.dart:126:18)
+#13     Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:639:45)
+#14     Future._propagateToListeners (dart:async/future_impl.dart:668:32)
+#15     Future._complete (dart:async/future_impl.dart:473:7)
+#16     _SyncCompleter.complete (dart:async/future_impl.dart:51:12)
+#17     _AsyncAwaitCompleter.complete (dart:async-patch/async_patch.dart:28:18)
+#18     _completeOnAsyncReturn (dart:async-patch/async_patch.dart:294:13)
+#19     PackagesGetCommand.usageValues (package:flutter_tools/src/commands/packages.dart)
+#20     _asyncThenWrapperHelper.<anonymous closure> (dart:async-patch/async_patch.dart:77:64)
+#21     _rootRunUnary (dart:async/zone.dart:1132:38)
+#22     _CustomZone.runUnary (dart:async/zone.dart:1029:19)
+#23     _FutureListener.handleValue (dart:async/future_impl.dart:126:18)
+#24     Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:639:45)
+#25     Future._propagateToListeners (dart:async/future_impl.dart:668:32)
+#26     Future._completeWithValue (dart:async/future_impl.dart:483:5)
+#27     Future._asyncComplete.<anonymous closure> (dart:async/future_impl.dart:513:7)
+#28     _rootRun (dart:async/zone.dart:1124:13)
+#29     _CustomZone.run (dart:async/zone.dart:1021:19)
+#30     _CustomZone.runGuarded (dart:async/zone.dart:923:7)
+#31     _CustomZone.bindCallbackGuarded.<anonymous closure> (dart:async/zone.dart:963:23)
+#32     _microtaskLoop (dart:async/schedule_microtask.dart:41:21)
+#33     _startMicrotaskLoop (dart:async/schedule_microtask.dart:50:5)
+#34     _runPendingImmediateCallback (dart:isolate-patch/isolate_patch.dart:116:13)
+#35     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:173:5)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel master, v1.8.5-pre.117, on Microsoft Windows [Version 6.1.7601], locale zh-CN)
+    • Flutter version 1.8.5-pre.117 at C:\src\flutter
+    • Framework revision 83a8a575ee (5 days ago), 2019-08-10 12:38:20 -0700
+    • Engine revision ff49ca1c6e
+    • Dart version 2.5.0 (build 2.5.0-dev.1.0 f29f41f1a5)
+
+[!] Android toolchain - develop for Android devices (Android SDK version 28.0.3)
+    • Android SDK at C:/Users/Administrator/AppData/Local/Android/Sdk
+    • Android NDK location not configured (optional; useful for native profiling support)
+    • Platform android-28, build-tools 28.0.3
+    • ANDROID_HOME = C:/Users/Administrator/AppData/Local/Android/Sdk
+    • Java binary at: D:\Android\Android Studio\jre\bin\java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-1343-b01)
+    ! Some Android licenses not accepted.  To resolve this, run: flutter doctor --android-licenses
+
+[✓] Android Studio (version 3.4)
+    • Android Studio at D:\Android\Android Studio
+    • Flutter plugin version 35.3.1
+    • Dart plugin version 183.6270
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-1343-b01)
+
+[✓] Connected device (1 available)
+    • Google Pixel • 192.168.131.103:5555 • android-x86 • Android 9 (API 28)
+
+! Doctor found issues in 1 category.
+```

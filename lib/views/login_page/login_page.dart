@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:toast/toast.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -7,6 +8,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController _userNameEditingController =
+  new TextEditingController();
+  TextEditingController _passwordEditingController =
+  new TextEditingController();
   bool isShowPassWord = false;
   String username = '';
   String password = '';
@@ -19,15 +24,6 @@ class _LoginPageState extends State<LoginPage> {
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
         color: const Color(0xff7c94b6),
-//        image: DecorationImage(
-//          image: NetworkImage('http://h.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0d023672312ac65c67506e77cec29e27/9f2f070828381f30dea167bbad014c086e06f06c.jpg'),
-//          fit: BoxFit.cover,
-//        ),
-        //边界
-//        border: Border.all(
-//          color: Colors.black,
-//          width: 8.0,
-//        ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -50,115 +46,71 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               children: <Widget>[
                 SizedBox(height: 30.0),
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.add_alert,
-                      size: 20.0,
-                      color: Color(0xff999999),
+                Theme(data: new ThemeData(primaryColor: Colors.grey,hintColor: Colors.grey),
+                  child: TextField(
+                    controller: _userNameEditingController,
+                    style:
+                    TextStyle(color: Color(0xff333333), fontSize: 16.0),
+                    obscureText: false,
+                    cursorColor: Colors.grey,
+                    decoration: InputDecoration(
+                        hintText: '请输入登录账号',
+                        prefixIcon: Icon(
+                          Icons.local_airport,
+                        )
                     ),
-                    Expanded(
-                      child: TextField(
-                        style: TextStyle(color: Color(0xff333333),fontSize:16.0),
-                        obscureText: false,
-                        cursorColor: Colors.grey,
-                        decoration: InputDecoration(
-                            border: InputBorder.none, hintText: '请输入登录账号'),
-
-                      ),
-                    ),
-                  ],
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 2.0,
-                  color: Color(0xff999999),
-                ),
+                  ),),
                 SizedBox(height: 30.0),
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.add_alert,
-                      size: 20.0,
-                      color: Color(0xff999999),
+                Theme(data: new ThemeData(primaryColor: Colors.grey,hintColor: Colors.grey),
+                  child: TextField(
+                    controller: _passwordEditingController,
+                    style:
+                    TextStyle(color: Color(0xff333333), fontSize: 16.0),
+                    obscureText: true,
+                    cursorColor: Colors.grey,
+                    decoration: InputDecoration(
+                        hintText: '请输入登录密码',
+                        prefixIcon: Icon(
+                          Icons.star,
+                        )
                     ),
-                    Expanded(
-                      child: TextField(
-                        style: TextStyle(color: Color(0xff333333),fontSize:16.0),
-                        obscureText: true,
-                        cursorColor: Colors.grey,
-                        decoration: InputDecoration(
-                            border: InputBorder.none, hintText: '请输入登录密码'),
-                      ),
-                    ),
-                  ],
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 2.0,
-                  color: Color(0xff999999),
-                ),
+                  ),),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     RawMaterialButton(
-                      child: Text('忘记密码',style: TextStyle(color: Colors.blue)),
-                      onPressed: (){},
+                      fillColor:Colors.yellow,
+                      child: Container(color: Colors.blue,
+                      child: Text('忘记密码', style: TextStyle(color: Colors.blue,fontSize: 14.0)),),
+                      onPressed: () {},
                     ),
                   ],
                 ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 45.0,
+                  child: RaisedButton(
+                    child: const Text(
+                      '登录',
+                      style: TextStyle(color: Colors.white, fontSize: 16.0),
+                    ),
+                    onPressed: () {
+                      print("阿士大夫国家和水果");
+                      doLogin();
+                    },
+                    color: Colors.blue,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                  ),
+                ),
+                SizedBox(height: 15.0),
               ],
             ),
           )
         ],
       ),
     );
-
-//    return Scaffold(
-//      body: SingleChildScrollView(
-//        child: Container(
-//          height: MediaQuery.of(context).size.height,
-//          width: MediaQuery.of(context).size.width,
-//          color: Theme.of(context).primaryColor,
-//          child: Center(
-//            child: Container(
-//              width: MediaQuery.of(context).size.width * 0.85,
-//              decoration: BoxDecoration(
-//                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
-//                  color: Colors.white,
-//                  image: DecorationImage(
-//                    image: AssetImage("assets/images/paimaiLogo.png"),
-//                    fit: BoxFit.scaleDown,
-//                    alignment: Alignment.bottomRight,
-//                  )),
-//              child: Stack(
-//                children: <Widget>[
-//                  Column(
-//                    mainAxisSize: MainAxisSize.min,
-//                    children: <Widget>[
-//                      SizedBox(height: 35.0),
-//                      Image.asset(
-//                        "assets/images/FlutterGo.png",
-//                        fit: BoxFit.contain,
-//                        width: 100,
-//                        height: 100,
-//                      ),
-//                      SizedBox(height: 35.0),
-//                    ],
-//                  ),
-//                  Positioned(
-//                    top: 0,
-//                    left: 0,
-//                    bottom: 0,
-//                    child: buildLoading(),
-//                  )
-//                ],
-//              ),
-//            ),
-//          ),
-//        ),
-//      ),
-//    );
   }
 
   Widget buildLoading() {
@@ -176,5 +128,18 @@ class _LoginPageState extends State<LoginPage> {
       );
     }
     return new Container();
+  }
+
+  void doLogin() {
+    if(_userNameEditingController.text == null ){
+      Toast.show("请输入登录账号", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+      return;
+    }
+
+    if(_passwordEditingController.text == null ){
+      Toast.show("请输入登录密码", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+      return;
+    }
+
   }
 }

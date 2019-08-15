@@ -32,6 +32,8 @@ dependencies:
   # 本地存储、收藏功能
   shared_preferences: ^0.4.3
   flutter_spinkit: "^3.1.0"
+  toast: ^0.1.5
+
 
 dev_dependencies:
   flutter_test:
