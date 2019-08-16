@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_module/views/home.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:toast/toast.dart';
+import 'foget_password.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -9,9 +11,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   TextEditingController _userNameEditingController =
-  new TextEditingController();
+      new TextEditingController();
   TextEditingController _passwordEditingController =
-  new TextEditingController();
+      new TextEditingController();
   bool isShowPassWord = false;
   String username = '';
   String password = '';
@@ -46,44 +48,48 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               children: <Widget>[
                 SizedBox(height: 30.0),
-                Theme(data: new ThemeData(primaryColor: Colors.grey,hintColor: Colors.grey),
+                Theme(
+                  data: new ThemeData(
+                      primaryColor: Colors.grey, hintColor: Colors.grey),
                   child: TextField(
                     controller: _userNameEditingController,
-                    style:
-                    TextStyle(color: Color(0xff333333), fontSize: 16.0),
+                    style: TextStyle(color: Color(0xff333333), fontSize: 16.0),
                     obscureText: false,
                     cursorColor: Colors.grey,
                     decoration: InputDecoration(
                         hintText: '请输入登录账号',
                         prefixIcon: Icon(
                           Icons.local_airport,
-                        )
-                    ),
-                  ),),
+                        )),
+                  ),
+                ),
                 SizedBox(height: 30.0),
-                Theme(data: new ThemeData(primaryColor: Colors.grey,hintColor: Colors.grey),
+                Theme(
+                  data: new ThemeData(
+                      primaryColor: Colors.grey, hintColor: Colors.grey),
                   child: TextField(
                     controller: _passwordEditingController,
-                    style:
-                    TextStyle(color: Color(0xff333333), fontSize: 16.0),
+                    style: TextStyle(color: Color(0xff333333), fontSize: 16.0),
                     obscureText: true,
                     cursorColor: Colors.grey,
                     decoration: InputDecoration(
                         hintText: '请输入登录密码',
                         prefixIcon: Icon(
                           Icons.star,
-                        )
-                    ),
-                  ),),
-
+                        )),
+                  ),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     RawMaterialButton(
-                      fillColor:Colors.yellow,
-                      child: Container(color: Colors.blue,
-                      child: Text('忘记密码', style: TextStyle(color: Colors.blue,fontSize: 14.0)),),
-                      onPressed: () {},
+                      child: Text('忘记密码',
+                          style: TextStyle(color: Colors.blue, fontSize: 14.0)),
+                      onPressed: () {
+                        Navigator.of(context).pushAndRemoveUntil(
+                            new MaterialPageRoute(builder: (context) => ForgetPasswordPage()),
+                                (route) => route == null);
+                      },
                     ),
                   ],
                 ),
@@ -96,7 +102,6 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(color: Colors.white, fontSize: 16.0),
                     ),
                     onPressed: () {
-                      print("阿士大夫国家和水果");
                       doLogin();
                     },
                     color: Colors.blue,
@@ -131,15 +136,19 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void doLogin() {
-    if(_userNameEditingController.text == null ){
-      Toast.show("请输入登录账号", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+    if (_userNameEditingController.text.isEmpty) {
+      Toast.show("请输入登录账号", context,
+          duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
       return;
     }
 
-    if(_passwordEditingController.text == null ){
-      Toast.show("请输入登录密码", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+    if (_passwordEditingController.text.isEmpty) {
+      Toast.show("请输入登录密码", context,
+          duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
       return;
     }
-
+    Navigator.of(context).pushAndRemoveUntil(
+        new MaterialPageRoute(builder: (context) => AppPage()),
+        (route) => route == null);
   }
 }

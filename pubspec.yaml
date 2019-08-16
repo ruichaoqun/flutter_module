@@ -33,6 +33,10 @@ dependencies:
   shared_preferences: ^0.4.3
   flutter_spinkit: "^3.1.0"
   toast: ^0.1.5
+  transparent_image: ^0.1.0
+  #调用原生资源，例如打电话，发送短信
+  url_launcher: ^5.1.2
+
 
 
 dev_dependencies:
