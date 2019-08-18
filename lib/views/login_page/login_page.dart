@@ -86,9 +86,8 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text('忘记密码',
                           style: TextStyle(color: Colors.blue, fontSize: 14.0)),
                       onPressed: () {
-                        Navigator.of(context).pushAndRemoveUntil(
-                            new MaterialPageRoute(builder: (context) => ForgetPasswordPage()),
-                                (route) => route == null);
+                        Navigator.of(context).push(
+                            new MaterialPageRoute(builder: (context) => ForgetPasswordPage()));
                       },
                     ),
                   ],

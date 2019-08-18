@@ -17,6 +17,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  //是否已登录
+  bool _hasLogin = false;
+
+  //是否正在登陆中
+  bool _isLoading = true;
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(

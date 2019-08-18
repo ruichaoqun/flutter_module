@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_module/widget/banner_widget.dart';
 
 class MainPage extends StatefulWidget {
-
-
   @override
   State<StatefulWidget> createState() {
     return _MainPageState();
   }
 }
 
-class _MainPageState extends State<MainPage>{
+class _MainPageState extends State<MainPage> {
   List<BannerItem> bannerList = [];
 
   @override
@@ -39,13 +37,15 @@ class _MainPageState extends State<MainPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("友德医智慧诊室助手",style: TextStyle(color: Colors.black54)),
+        title: Text("友德医智慧诊室助手", style: TextStyle(color: Colors.black54)),
         centerTitle: true,
         backgroundColor: Colors.white,
         actions: <Widget>[
-          IconButton(icon:Icon(Icons.message)),
+          IconButton(icon: Icon(Icons.message)),
         ],
-        leading: IconButton(icon: Icon(Icons.star),),
+        leading: IconButton(
+          icon: Icon(Icons.star),
+        ),
         elevation: 0.0,
       ),
       body: Column(
@@ -58,6 +58,7 @@ class _MainPageState extends State<MainPage>{
             },
           ),
           _containWidget(),
+
         ],
       ),
     );
@@ -65,9 +66,38 @@ class _MainPageState extends State<MainPage>{
 
   Widget _containWidget() {
     return new Container(
-      height: 150.0,
-      padding: EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
+      height: 80.0,
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: RawMaterialButton(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[Icon(Icons.accessibility), Text("|asd")],
+              ),
+              onPressed: () {},
+            ),
+          ),
+          Expanded(
+            child: RawMaterialButton(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[Icon(Icons.accessibility), Text("|asd")],
+              ),
+              onPressed: () {},
+            ),
+          ),
+          Expanded(
+            child: RawMaterialButton(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[Icon(Icons.accessibility), Text("|asd")],
+              ),
+              onPressed: () {},
+            ),
+          ),
+        ],
+      ),
     );
   }
-
 }
